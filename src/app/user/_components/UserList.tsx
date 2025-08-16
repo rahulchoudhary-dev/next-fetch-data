@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default async function UserList() {
   const users = await getUsers();
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-
+  // await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  console.log("Run again");
   return (
     <ul className="space-y-4">
       {users.map((user) => (

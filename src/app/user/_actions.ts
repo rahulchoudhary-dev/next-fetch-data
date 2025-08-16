@@ -1,4 +1,6 @@
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { cache } from "react";
 
 // wrap the function with cache()
@@ -10,3 +12,13 @@ export const getUserDetailsDb = cache(async (id: number) => {
   const res = await prisma.user.findFirst({ where: { id } });
   return res;
 });
+
+export const createUserDb = async (
+  name: string,
+  email: string,
+  password: string
+) => {
+  const res = await prisma.user.create({ data: { name, email, password } });
+  revalidatePath("/user", "page");
+  redirect("/dashboard");
+};

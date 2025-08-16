@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import UserList from "./userList";
 import PostList from "./postsList";
 import { fetchPosts, fetchUsers } from "../_actions";
