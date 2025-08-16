@@ -9,6 +9,8 @@ export const getUsers = cache(async () => {
 });
 
 export const getUserDetailsDb = cache(async (id: number) => {
+  console.log("calling user dedtails db");
+
   const res = await prisma.user.findFirst({ where: { id } });
   return res;
 });

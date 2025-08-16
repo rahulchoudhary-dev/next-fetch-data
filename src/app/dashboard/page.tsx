@@ -3,6 +3,7 @@ import Link from "next/link";
 import DashBoardList from "./_components/dahboardList";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { Button } from "./_components/errorButton";
 
 const DashBoardPage = async () => {
   return (
@@ -10,6 +11,8 @@ const DashBoardPage = async () => {
       <Link href={"/"} className="text-blue-600 underline">
         Back
       </Link>
+
+      <Button />
 
       <header className="mb-6">
         <h1 className="text-2xl font-bold">Welcome to the DashBoard</h1>

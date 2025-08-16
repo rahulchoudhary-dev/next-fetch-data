@@ -1,19 +1,26 @@
 import Link from "next/link";
 import { getUserDetailsDb } from "../_actions";
+import { unstable_cache } from "next/cache";
+import { notFound } from "next/navigation";
 
 const UserDetails = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
-  const user = await getUserDetailsDb(Number(id));
+
+  const getUserDetailsCached = unstable_cache(
+    async (id: number) => {
+      return getUserDetailsDb(id); // your DB call
+    },
+    [id], // cache key (must be unique)
+    {
+      // revalidate: 60, // revalidate every 60 seconds
+    }
+  );
+  const user = await getUserDetailsCached(Number(id));
+
+  console.log("user", user);
   //   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   if (!user) {
-    return (
-      <div className="p-6">
-        <Link href="/users" className="text-blue-600 underline">
-          Back
-        </Link>
-        <h1 className="text-xl font-bold mt-4">User not found</h1>
-      </div>
-    );
+    notFound();
   }
 
   return (
