@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { Roboto, Dancing_Script, Agdasima } from "next/font/google";
+import { WebVitals } from "@/components/web-vitals";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -26,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <WebVitals />
+        {children}
+      </body>
     </html>
   );
 }
