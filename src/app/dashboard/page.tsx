@@ -6,6 +6,14 @@ import Loading from "./loading";
 import { Button } from "./_components/errorButton";
 
 const DashBoardPage = async () => {
+  // async function getHello() {
+  //   const res = await fetch("http://localhost:3000/dashboard/api/"); // use your full URL in dev
+  //   // or fetch("/api/hello") if same origin
+  //   const text = await res.text();
+  //   console.log(text);
+  //   return text;
+  // }
+  // await getHello();
   return (
     <div className="p-8">
       <Link href={"/"} className="text-blue-600 underline">
