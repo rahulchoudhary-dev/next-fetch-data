@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { getUserDetailsDb } from "../_actions";
 import { unstable_cache } from "next/cache";
