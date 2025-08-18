@@ -10,6 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^15.4.6",
     "@prisma/client": "^6.14.0",
     "@prisma/extension-accelerate": "^2.0.2",
     "next": "15.4.6",
